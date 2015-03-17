@@ -5,7 +5,9 @@ module Jellyfish
     module AWS
       describe 'Registering product types' do
         it 'registers all product types' do
-          expect(Dummy.config.x.product_types).to include(DatabaseProductType)
+          vals = Dummy::Application.config.x.product_types.values
+          puts vals.inspect
+          expect(vals).to include(DatabaseProductType)
         end
       end
     end

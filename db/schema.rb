@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310211305) do
+ActiveRecord::Schema.define(version: 20150319155513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,13 +98,25 @@ ActiveRecord::Schema.define(version: 20150310211305) do
 
   add_index "clouds", ["deleted_at"], name: "index_clouds_on_deleted_at", using: :btree
 
+  create_table "content_page_revisions", force: true do |t|
+    t.integer  "content_pages_id"
+    t.integer  "staff_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title",            null: false
+    t.text     "body"
+  end
+
+  add_index "content_page_revisions", ["content_pages_id"], name: "index_content_page_revisions_on_content_pages_id", using: :btree
+  add_index "content_page_revisions", ["staff_id"], name: "index_content_page_revisions_on_staff_id", using: :btree
+
   create_table "content_pages", force: true do |t|
+    t.integer  "staff_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
-    t.integer  "staff_id"
-    t.string   "slug",       null: false
     t.string   "title",      null: false
+    t.string   "slug",       null: false
     t.text     "body"
   end
 
@@ -257,6 +269,7 @@ ActiveRecord::Schema.define(version: 20150310211305) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.json     "questions_form_schema"
   end
 
   create_table "products", force: true do |t|

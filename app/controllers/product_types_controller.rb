@@ -11,7 +11,12 @@ class ProductTypesController < ApplicationController
 
   def index
     authorize ProductType
-    respond_with_params @product_types
+    render json: Rails.
+      configuration.
+      x.
+      product_types.
+      values.
+      map { |pt| pt.to_json }
   end
 
   api :GET, '/product_types/:id', 'Shows product_type with :id'
