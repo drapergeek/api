@@ -8,6 +8,9 @@ require 'jellyfish_fog_aws/infrastructure'
 module Jellyfish
   module Fog
     module AWS
+      Rails.configuration.x.product_types << [
+        DatabaseProductType, StorageProductType, InfrastructureProductType
+      ]
     end
   end
 end
