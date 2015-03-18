@@ -22,8 +22,8 @@ var compression = require('compression');
 var app = express();
 var fs = require('fs');
 
-var appConfigPath = './public/appConfig.js';
-var appVersionPath = './public/appVersion.js';
+var appConfigPath = path.join(__dirname, '/public/appConfig.js');
+var appVersionPath  = path.join(__dirname, '/public/appVersion.js');
 
 app.set('port', process.env.PORT || defaults.port);
 
