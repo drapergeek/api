@@ -27,3 +27,5 @@
 #Ingore the license finder reports
 /doc/dependencies*
 .env
+/public/appConfig.js
+/public/appVersion.js

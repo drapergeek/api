@@ -1,8 +1,8 @@
 "use strict";
 
 var defaults = {
-  'port': 5000,
-  'apiBasePath': 'http://localhost:3000',
+  'port': 5100,
+  'apiBasePath': 'http://localhost:5000',
   'orgLogo': '/images/logo.png',
   'orgColor': '#0a498a'
 };
