@@ -7,7 +7,7 @@ module Jellyfish
         PRODUCT_QUESTIONS = JSON.parse(
           File.read(
             Jellyfish::Fog::AWS::Engine.root.join(
-              *%w(config order_item_questions storage.json)
+              *%w(config product_questions storage.json)
             )
           )
         ).freeze
