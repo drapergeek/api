@@ -25,6 +25,8 @@ module JellyfishCore
     config.generators.views = false
     config.generators.assets = false
 
+    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components")
+
     unless ENV['CORS_ALLOW_ORIGIN'].nil?
       config.middleware.insert_before 'Warden::Manager', 'Rack::Cors' do
         allow do
