@@ -2,7 +2,7 @@ module Jellyfish
   module Fog
     module AWS
       class ProductType
-        def self.to_json
+        def self.as_json(_)
           Jbuilder.new do |product_type|
             product_type.name 'Database Product Type'
             product_type.description description
