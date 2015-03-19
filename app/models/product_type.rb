@@ -18,7 +18,7 @@ class ProductType < ActiveRecord::Base
     {
       name: name,
       description: description,
-      questions_form_schema: questions_form_schema
+      formSchema: questions_form_schema
     }
     # Jbuilder.new do |product_type|
     #   product_type.name name

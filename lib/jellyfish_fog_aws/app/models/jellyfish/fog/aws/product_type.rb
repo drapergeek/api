@@ -6,7 +6,7 @@ module Jellyfish
           {
             name: name,
             description: description,
-            questions_form_schema: product_questions
+            formSchema: product_questions
           }
           # Jbuilder.new do |product_type|
           #   product_type.name 'Database Product Type'
