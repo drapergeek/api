@@ -3,16 +3,11 @@ module Jellyfish
     module AWS
       class ProductType
         def self.to_json
-          {
-            name: name,
-            description: description,
-            formSchema: product_questions
-          }
-          # Jbuilder.new do |product_type|
-          #   product_type.name 'Database Product Type'
-          #   product_type.description description
-          #   product_type.questions_form_schema product_questions
-          # end.target!
+          Jbuilder.new do |product_type|
+            product_type.name 'Database Product Type'
+            product_type.description description
+            product_type.formSchema product_questions
+          end.attributes!
         end
       end
     end

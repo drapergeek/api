@@ -15,15 +15,10 @@ class ProductType < ActiveRecord::Base
   has_many :questions, -> { order 'load_order ASC' }, class_name: 'ProductTypeQuestion'
 
   def to_json
-    {
-      name: name,
-      description: description,
-      formSchema: questions_form_schema
-    }
-    # Jbuilder.new do |product_type|
-    #   product_type.name name
-    #   product_type.description description
-    #   product_type.questions_form_schema questions_form_schema
-    # end.target!
+    Jbuilder.new do |product_type|
+      product_type.name name
+      product_type.description description
+      product_type.formSchema questions_form_schema
+    end.attributes!
   end
 end
