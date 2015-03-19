@@ -3,8 +3,14 @@ module Jellyfish
     module AWS
       class DatabaseProductType < ProductType
         DESCRIPTION = 'Databases'.freeze
-        PRODUCT_QUESTIONS = JSON.parse(File.read(Jellyfish::Fog::AWS::Engine.root.join(*%w(config order_item_questions database.json)))).freeze
         PRODUCT_CLASS = DatabaseProduct
+        PRODUCT_QUESTIONS = JSON.parse(
+          File.read(
+            Jellyfish::Fog::AWS::Engine.root.join(
+              *%w(config order_item_questions database.json)
+            )
+          )
+        ).freeze
 
         def self.description
           DESCRIPTION

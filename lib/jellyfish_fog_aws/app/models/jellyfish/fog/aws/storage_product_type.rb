@@ -4,7 +4,13 @@ module Jellyfish
       class StorageProductType < ProductType
         DESCRIPTION = 'Storage'.freeze
         PRODUCT_CLASS = StorageProduct
-        PRODUCT_QUESTIONS = JSON.parse(File.read(Jellyfish::Fog::AWS::Engine.root.join(*%w(config order_item_questions storage.json)))).freeze
+        PRODUCT_QUESTIONS = JSON.parse(
+          File.read(
+            Jellyfish::Fog::AWS::Engine.root.join(
+              *%w(config order_item_questions storage.json)
+            )
+          )
+        ).freeze
 
         def self.description
           DESCRIPTION
