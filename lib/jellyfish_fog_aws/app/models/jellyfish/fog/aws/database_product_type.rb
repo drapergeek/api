@@ -19,6 +19,10 @@ module Jellyfish
         def self.product_questions
           PRODUCT_QUESTIONS
         end
+
+        def self.as_json(_)
+          ProductType.build_json(DESCRIPTION, PRODUCT_QUESTIONS)
+        end
       end
     end
   end
