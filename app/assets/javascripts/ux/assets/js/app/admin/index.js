@@ -1,13 +1,17 @@
 'use strict';
 
-var angular = require('angular');
-
 var AdminModule = angular.module('broker.admin', [
+  'broker.products',
+  'broker.projects',
+  'broker.users',
+  'broker.settings'
+])
+.controller('AdminController'
   require('./products').name,
   require('./projects').name,
   require('./users').name,
   require('./settings').name])
-  .controller('AdminController', require('./admin_controller'))
+  .controller('AdminController', AdminController)
   .config(require('./routes'));
 
-module.exports = AdminModule;
+window.AdminModule = AdminModule;

@@ -1,21 +1,5 @@
 'use strict';
 
-require('angular-ui-router');
-require('angular-animate');
-require('angular-resource');
-require('angular-sanitize');
-require('angular-bootstrap');
-require('angular-gravatar');
-require('angular-loading-bar');
-require('angular-smart-table');
-require('angular-ui-select');
-require('angular-money-directive');
-require('angucomplete');
-require('angular-cookies');
-require('angular-progress-arc');
-
-var angular = require('angular');
-
 angular.module('broker', [
   "ui.router",
   "ngResource",

@@ -25,7 +25,8 @@ module JellyfishCore
     config.generators.views = false
     config.generators.assets = false
 
-    config.assets.paths << Rails.root.join("app", "assets", "javascripts", "node_modules")
+    config.assets.paths << Rails.root.join(*%w(vendor assets bower_components))
+    config.assets.paths << Rails.root.join(*%w(vendor assets bower_components bootstrap-sass-official assets fonts))
 
     unless ENV['CORS_ALLOW_ORIGIN'].nil?
       config.middleware.insert_before 'Warden::Manager', 'Rack::Cors' do
