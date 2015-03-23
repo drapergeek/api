@@ -16,6 +16,7 @@ class ProductType < ActiveRecord::Base
 
   def as_json(_)
     Jbuilder.new do |product_type|
+      product_type.id id
       product_type.name name
       product_type.description description
       product_type.formSchema questions_form_schema
