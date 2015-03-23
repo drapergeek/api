@@ -16,8 +16,6 @@
     "angular-ui-router": "latest",
     "angular-ui-select": "angular-ui/ui-select",
     "bootstrap-sass": "latest",
-    "browserify": "latest",
-    "browserify-incremental": "latest",
     "font-awesome": "latest",
     "jquery": "latest",
     "lodash": "latest",

@@ -1,1 +1,1 @@
-//= require_tree ./ux/assets/js
+//= require ux/assets/js/app/index
