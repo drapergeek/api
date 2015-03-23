@@ -94,6 +94,8 @@ gem 'friendly_id'
 gem 'paper_trail'
 
 gem 'sass'
+gem 'bower-rails'
+gem 'browserify-rails'
 
 group :production, :staging do
   gem 'rails_12factor'
