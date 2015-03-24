@@ -1,4 +1,0 @@
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: File to import not found or unreadable: bootstrap/variables.\A        Load paths:\A          \A         on line 2 of vendor/_bootstrap.sass\A         from line 1 of styles.sass\A \A 1: @import 'vendor/bootstrap'\A 2: @import 'vendor/fontawesome'\A 3: @import 'common/index'\A 4: \A 5: @import 'admin/index'\A 6: @import \"products/index\"\A 7: @import 'projects/index'"; }
