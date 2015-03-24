@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # Docs
   apipie
 
+  scope '/api/v1' do
   # Auth
   devise_for :staff, controllers: { sessions: 'sessions' }
 
@@ -121,6 +122,7 @@ Rails.application.routes.draw do
   resources :content_pages, only: [:index, :create], defaults: { format: :json }
   resources :content_pages, only: [:update, :show, :destroy], defaults: { format: :json }, param: :slug
   patch 'content_pages/revert/:slug', to: 'content_pages#revert', defaults: { format: :json }
+  end
 
   root 'welcome#index'
 end
