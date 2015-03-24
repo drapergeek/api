@@ -3,7 +3,7 @@
   "title": "Storage",
   "required": ["availability", "region"],
   "properties": {
-    "availability": {
+    "provisioning_answers[availability]": {
       "title": "Storage Redundancy",
       "type": "string",
       "enum": [
@@ -12,7 +12,7 @@
       ],
       "default": "normal"
     },
-    "region": {
+    "provisioning_answers[region]": {
       "title": "DB Engine",
       "type": "string",
       "enum": [
