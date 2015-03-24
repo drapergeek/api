@@ -18,5 +18,4 @@
 //= require microplugin
 //= require selectize
 //= require bootstrap-sass
-
 //= require_tree .
