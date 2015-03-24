@@ -3,7 +3,7 @@
   "title": "Databases",
   "required": ["db_instance_class", "engine", "allocated_storage"],
   "properties": {
-    "db_instance_class": {
+    "provisioning_answers[][db_instance_class]": {
       "title": "DB Instance Size",
       "type": "string",
       "enum": [
@@ -13,7 +13,7 @@
       ],
       "default": "db.m3.medium"
     },
-    "engine": {
+    "provisioning_answers[][engine]": {
       "title": "DB Engine",
       "type": "string",
       "enum": [
@@ -23,12 +23,12 @@
         "sqlserver"
       ]
     },
-    "allocated_storage": {
+    "provisioning_answers[][allocated_storage]": {
       "title": "Disk Size",
       "type": "string",
       "default": "40"
     },
-    "storage_type": {
+    "provisioning_answers[][storage_type]": {
       "title": "Storage Type",
       "type": "string",
       "enum": [
@@ -39,7 +39,7 @@
       ],
       "default": "ssd"
     },
-    "availability": {
+    "provisioning_answers[][availability]": {
       "title": "Storage Redundancy",
       "type": "string",
       "enum": [

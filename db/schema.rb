@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319155513) do
+ActiveRecord::Schema.define(version: 20150323203604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -281,11 +281,12 @@ ActiveRecord::Schema.define(version: 20150319155513) do
     t.datetime "updated_at"
     t.datetime "deleted_at"
     t.integer  "product_type_id"
-    t.decimal  "setup_price",        precision: 10, scale: 4, default: 0.0
-    t.decimal  "hourly_price",       precision: 10, scale: 4, default: 0.0
-    t.decimal  "monthly_price",      precision: 10, scale: 4, default: 0.0
+    t.decimal  "setup_price",          precision: 10, scale: 4, default: 0.0
+    t.decimal  "hourly_price",         precision: 10, scale: 4, default: 0.0
+    t.decimal  "monthly_price",        precision: 10, scale: 4, default: 0.0
     t.string   "provisionable_type"
     t.integer  "provisionable_id"
+    t.json     "provisioning_answers"
   end
 
   add_index "products", ["deleted_at"], name: "index_products_on_deleted_at", using: :btree

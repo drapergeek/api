@@ -23,6 +23,7 @@ class ManageIqProductsController < ApplicationController
   error code: 422, desc: ParameterValidation::Messages.missing
 
   def create
+    ap params
     @manage_iq_product = ManageIqProduct.new(@manage_iq_products_params)
     @manage_iq_product.product = Product.new(@products_params)
     authorize @manage_iq_product
@@ -73,8 +74,10 @@ class ManageIqProductsController < ApplicationController
       :hourly_price,
       :monthly_price,
       :setup_price,
-      answers: [:product_id, :product_type_id, :product_type_question_id, :answer, :id]
+      # answers: [:product_id, :product_type_id, :product_type_question_id, :answer, :id]
     )
+
+    params.require(:provisioning_answers).permit!
 
     @products_params.tap do |products|
       products[:answers_attributes] = products.delete(:answers) if products.key?(:answers)
