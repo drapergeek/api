@@ -125,4 +125,29 @@ Rails.application.routes.draw do
   end
 
   root 'welcome#index'
+
+  # Forward all angular paths to angular app so that directly visiting a url or
+  # refreshing the page works as expected
+  %w(
+  401-unauthorized
+  404-not-found
+  admin
+  cart
+  dashboard
+  list
+  login
+  logout
+  marketplace
+  order
+  orders
+  project
+  server-unreachable
+  show
+  terribly-sorry-about-that
+  users
+  ).each do |path|
+    get "/#{path}" => 'welcome#index'
+    get "/#{path}*path" => 'welcome#index'
+  end
+
 end
