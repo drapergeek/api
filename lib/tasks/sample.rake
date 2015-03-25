@@ -156,13 +156,23 @@ namespace :sample do
     ])
     ProductAnswer.connection.execute("ALTER SEQUENCE product_answers_id_seq RESTART #{ProductAnswer.all.order('id DESC').first.id + 1}")
 
+    def parse_questions(file)
+      JSON.parse(
+        File.read(
+          Jellyfish::Fog::AWS::Engine.root.join(
+            *%w(config product_questions #{file}.json)
+          )
+        )
+      )
+    end
+
     ProductType.create!([
-       { id: 1, name: "Infrastructure", description: "Available Infrastructure"},
+       { id: 1, name: "Infrastructure", description: "Available Infrastructure", provisioning_answers: parse_questions('infrastructure-miq') },
        { id: 5, name: "Platforms", description: "Available Platforms\n"},
-       { id: 3, name: "Databases", description: "Available Database"},
-       { id: 2, name: "Big Data", description: "Available Big Data Solutions"},
+       { id: 3, name: "Databases", description: "Available Database", provisioning_answers: parse_questions('databases-miq') },
+       { id: 4, name: "Storage", description: "Available Storage", provisioning_answers: parse_questions('storage-miq') },
+       { id: 2, name: "Big Data", description: "Available Big Data Solutions", provisioning_answers: parse_questions('big_data-miq') },
        { id: 6, name: "Applications", description: "Available Applications"},
-       { id: 4, name: "Storage", description: "Available Storage"},
        { id: 7, name: "Staff", description: "Available Staff"}
     ])
     ProductType.connection.execute("ALTER SEQUENCE product_types_id_seq RESTART #{ProductType.all.order('id DESC').first.id + 1}")
