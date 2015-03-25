@@ -23,14 +23,12 @@ class ManageIqProductsController < ApplicationController
   error code: 422, desc: ParameterValidation::Messages.missing
 
   def create
-    @normalized_params = {}
-    params.dup.each do |key, value|
-      Rack::Utils.normalize_params(@normalized_params, key, value)
-    end
     @manage_iq_product = ManageIqProduct.new(@manage_iq_products_params)
     @manage_iq_product.product = Product.new(@products_params)
     authorize @manage_iq_product
     @manage_iq_product.save
+    ap @products_params
+    ap @manage_iq_product.product
     respond_with @manage_iq_product
   end
 
@@ -61,15 +59,21 @@ class ManageIqProductsController < ApplicationController
   private
 
   def load_manage_iq_product_params
-    @manage_iq_products_params = params.permit(
+    normalized_params = ActionController::Parameters.new
+
+    params.dup.each do |key, value|
+      Rack::Utils.normalize_params(normalized_params, key, value)
+    end
+
+    @manage_iq_products_params = normalized_params.permit(
       :service_type_id,
       :service_catalog_id,
       :chef_role,
       :cloud_id,
-      options: []
+      options: [],
     )
 
-    @products_params = params.permit(
+    @products_params = normalized_params.permit(
       :name,
       :description,
       :img,
@@ -77,14 +81,9 @@ class ManageIqProductsController < ApplicationController
       :hourly_price,
       :monthly_price,
       :setup_price,
-      # answers: [:product_id, :product_type_id, :product_type_question_id, :answer, :id]
     )
 
-    # params.require(:provisioning_answers).permit!
-
-    # @products_params.tap do |products|
-    #   products[:answers_attributes] = products.delete(:answers) if products.key?(:answers)
-    # end
+    @products_params[:provisioning_answers] = normalized_params['provisioning_answers']
   end
 
   def load_manage_iq_product

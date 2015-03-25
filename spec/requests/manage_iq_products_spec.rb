@@ -30,7 +30,7 @@ RSpec.describe 'Manage IQ Products API' do
     end
 
     it 'creates an product', :show_in_doc do
-      post '/manage_iq_products/', options: ['test']
+      post '/manage_iq_products/', 'provisioning_answers[region]' => 'test value'
       expect(Product.first).to be_present
       expect(response.body).to eq(ManageIqProduct.first.to_json)
     end
