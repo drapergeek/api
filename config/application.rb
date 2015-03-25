@@ -25,8 +25,6 @@ module JellyfishCore
     config.generators.views = false
     config.generators.assets = false
 
-    config.x.product_types = {}
-
     unless ENV['CORS_ALLOW_ORIGIN'].nil?
       config.middleware.insert_before 'Warden::Manager', 'Rack::Cors' do
         allow do

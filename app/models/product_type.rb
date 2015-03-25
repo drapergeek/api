@@ -13,13 +13,4 @@
 class ProductType < ActiveRecord::Base
   has_many :products
   has_many :questions, -> { order 'load_order ASC' }, class_name: 'ProductTypeQuestion'
-
-  def as_json(_)
-    Jbuilder.new do |product_type|
-      product_type.id id
-      product_type.name name
-      product_type.description description
-      product_type.formSchema questions_form_schema
-    end.attributes!
-  end
 end

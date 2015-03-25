@@ -42,8 +42,6 @@ gem 'pundit'
 
 gem 'time_for_a_boolean'
 
-gem 'custom_configuration'
-
 gem 'jellyfish_fog_aws', path: 'lib/jellyfish_fog_aws'
 
 # Tests

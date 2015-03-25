@@ -27,8 +27,6 @@ class ManageIqProductsController < ApplicationController
     @manage_iq_product.product = Product.new(@products_params)
     authorize @manage_iq_product
     @manage_iq_product.save
-    ap @products_params
-    ap @manage_iq_product.product
     respond_with @manage_iq_product
   end
 
